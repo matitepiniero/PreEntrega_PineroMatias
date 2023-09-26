@@ -1,0 +1,35 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %}Detalle del Producto{% endblock %}
+
+{% block content %}
+    <!-- Product Details Section -->
+    <section class="page-section" id="product-details">
+        <div class="container">
+            <!-- Product Details Section Heading -->
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Detalle del Producto</h2>
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Details Content -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="mb-3">{{ producto.nombre }}</h4>
+                        <a href="{% url 'lista_productos' %}" class="btn btn-primary">Volver</a>
+                    </div>
+                    <p><strong>Código:</strong> {{ producto.codigo }}</p>
+                    <p><strong>Precio de Venta:</strong> ${{ producto.precio_venta }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
