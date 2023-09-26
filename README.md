@@ -15,13 +15,6 @@ Esta aplicacion se inicia con el objetivo de llegar a ser un sistema ERP.
 
 
 **Estructura del Proyecto**
-├── AppCoder/
-│ ├── static/                     /*Los archivos y carpetas dentro de la carpeta "static" se utilizan para dar estilo y funcionalidad a la aplicación web.*/
-│ │ ├── [archivos y carpetas estáticos]
-│ ├── templates/                  /* Cada archivo HTML en esta carpeta corresponde a una vista específica en Django.*/
-│ │ ├── [archivos y carpetas de plantillas HTML]
-
-
 PreEntrega_PineroMatias/
 ├── AppCoder/
 │   ├── static/                      /*Los archivos y carpetas dentro de la carpeta "static" se utilizan para dar estilo y funcionalidad a la aplicación web.*/
