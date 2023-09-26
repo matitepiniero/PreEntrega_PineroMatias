@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# PreEntrega_PineroMatias
-=======
 # PreEntrega_PineroMatias
 
 Nombre de la Aplicación
@@ -49,4 +46,3 @@ Pruebas
 2 - Probar la busqueda de cliente
 3 - Eliminar Cliente
 4 - Hacer lo mismo con productos con la diferencia que no vamos a eliminar sino que vamos a ver el detalle del mismo.
->>>>>>> aae71214a15552034376e9d5d087dfebba0442b0
