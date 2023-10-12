@@ -1,156 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        {% load static %}
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand"  href="#page-top">PONUS SOFTWARE</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "Inicio" %}">Inicio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "Cliente" %}">Cliente</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "lista_productos" %}">Producto</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#Info">Contactanos</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="{% static 'AppCoder/assets/img/logo_size.svg' %}" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">
-                    
-                    {% block titulo %}
-                    {% endblock %}
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Freelancer - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
+    <style>
+        /* Cambiar el color de las flechas del carrusel a negro */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: black;
+        }
 
-                </h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+        /* Hacer que los elementos del carrusel sean más pequeños */
+        .carousel-item img {
+            max-height: 200px; /* Ajusta la altura máxima según tus preferencias */
+            width: auto; /* Para mantener la proporción original */
+            margin: 0 auto; /* Centrar horizontalmente */
+            display: block; /* Evitar espacio adicional debajo de las imágenes */
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center; /* Centra verticalmente los elementos en la barra de navegación */
+            gap: 10px; /* Espacio entre elementos de la lista */
+            list-style: none; /* Elimina los puntos de la lista predeterminados */
+        }
+
+        .navbar-nav li {
+            display: inline; /* Hace que los elementos de la lista se muestren en línea */
+        }
+
+        .avatar-container {
+            width: 100px; /* Ancho del contenedor de la imagen */
+            height: 100px; /* Altura del contenedor de la imagen */
+            overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+            border: 2px solid #fff; /* Borde blanco alrededor del contenedor de la imagen */
+            border-radius: 100%; /* Forma circular para el contenedor de la imagen */
+            margin: 0 auto; /* Centra el contenedor de la imagen horizontalmente */
+            background-color: transparent;
+        }
+
+        .avatar-image {
+            width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+            height: auto; /* La altura se ajusta automáticamente para mantener la relación de aspecto */
+            display: block; /* Asegura que la imagen se muestre como un bloque */
+        }
+        .custom-button {
+            background-color: #dc3545; /* Cambia el color de fondo del botón */
+            color: #fff; /* Cambia el color del texto a blanco */
+            border: none; /* Elimina el borde del botón */
+            padding: 10px 20px; /* Ajusta el relleno (padding) del botón según tus preferencias */
+            text-decoration: none; /* Elimina la subrayado del enlace */
+            transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
+        }
+
+        .custom-button:hover {
+            background-color: #fffdfd; /* Cambia el color de fondo en el estado "hover" (cuando el mouse pasa por encima) */
+        }
+        .custom-avatar {
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Sin borde */
+        }
+
+    </style>
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <img class="navbar-logo" src="{% static 'logo_empresa.png' %}" alt="Logo de la empresa" width="500" height="500" />
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated and user.username == "super" %}
+                    <a href="{% url 'admin:index' %}" class="btn btn-primary">Acceder al Administrador</a>
+                {% endif %}
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded btn" href="{% url 'lista_movimientos_stock' %}">Inventario</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded btn" href="{% url 'lista_productos' %}">Producto</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded btn" href="{% url 'Cliente' %}">Cliente</a></li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn btn-primary" href="{% url 'crear_perfil' %}">Perfil</a></li>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn btn-danger custom-button" href="{% url 'logout' %}">Cerrar sesión</a>
+
+
+                <div class="avatar-bubble">
+                    {% if user.is_authenticated %}
+                        <div class="avatar-container">
+                            {% if user.userprofile.avatar %}
+                                <img class="avatar-image custom-avatar" src="{{ user.userprofile.avatar.url }}" alt="Avatar">
+
+                            {% else %}
+                                <p>No tienes un avatar configurado.</p>
+                            {% endif %}
+                        </div>
+                        
+                    {% else %}
+                        <p>No tienes un avatar configurado.</p>
+                        <p>No has iniciado sesión.</p>
+                    {% endif %}
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">
-                    
-                    {% block descripcion %}
-                    
-                    {% endblock  %}
                 
-                </p>
-            </div>
-        </header>
-        <!-- Portfolio Section-->
+            </ul>
+        </div>
+    </nav>
+        
+<!-- Masthead-->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'tarea1.gif' %}" alt="..." />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-2">
+            {% block titulo %}
+            Título Principal Aquí
+            {% endblock %}
+        </h1>
+        <!-- Subtítulo-->
+        <p class="masthead-subheading font-weight-light mb-4">
+            {% block descripcion %}
+            Subtítulo o descripción breve de tu negocio aquí.
+            {% endblock %}
+        </p>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- CTA (Call to Action) Button-->
+        <a class="btn btn-success" href="https://wa.me/5493537312193">
+            <i class="fab fa-whatsapp me-2"></i>
+            Contáctanos por WhatsApp
+        </a>
+    </div>
+</header>
+        <!-- Portfolio Section with Custom Carousel Styles -->
         <section class="page-section portfolio" id="portfolio">
             {% block section %}
             <div class="container">
-                <!-- Portfolio Section Heading-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        {% block contenido %}
-                        {% endblock %}
-                    </div>
-                </div>
+                <!-- Portfolio Section Heading -->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Nuestros Clientes</h2>
-                <!-- Icon Divider-->
+                <!-- Icon Divider -->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/cabin.png' %}" alt="..." />
+                <!-- Portfolio Carousel with Custom Styles -->
+                <div id="clientCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Portfolio Item 1 -->
+                        <div class="carousel-item active">
+                            <img class="img-fluid mx-auto d-block" src="{% static 'AppCoder/assets/img/portfolio/cabin.png' %}" alt="Cliente 1" />
+                        </div>
+                        <!-- Portfolio Item 2 -->
+                        <div class="carousel-item">
+                            <img class="img-fluid mx-auto d-block" src="{% static 'AppCoder/assets/img/portfolio/cake.png' %}" alt="Cliente 2" />
+                        </div>
+                        <!-- Portfolio Item 3 -->
+                        <div class="carousel-item">
+                            <img class="img-fluid mx-auto d-block" src="{% static 'AppCoder/assets/img/portfolio/circus.png' %}" alt="Cliente 3" />
+                        </div>
+                        <!-- Portfolio Item 4 -->
+                        <div class="carousel-item">
+                            <img class="img-fluid mx-auto d-block" src="{% static 'AppCoder/assets/img/portfolio/game.png' %}" alt="Cliente 4" />
+                        </div>
+                        <!-- Portfolio Item 5 -->
+                        <div class="carousel-item">
+                            <img class="img-fluid mx-auto d-block" src="{% static 'AppCoder/assets/img/portfolio/safe.png' %}" alt="Cliente 5" />
+                        </div>
+                        <!-- Portfolio Item 6 -->
+                        <div class="carousel-item">
+                            <img class="img-fluid mx-auto d-block" src="{% static 'AppCoder/assets/img/portfolio/submarine.png' %}" alt="Cliente 6" />
                         </div>
                     </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/cake.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/circus.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/game.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/safe.png' %}" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/submarine.png' %}" alt="..." />
-                        </div>
-                    </div>
+                    <!-- Custom Carousel Controls -->
+                    <a class="carousel-control-prev" href="#clientCarousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#clientCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </a>
                 </div>
             </div>
             {% endblock %}
         </section>
+
+        <!-- Custom CSS for Carousel Styles -->
+
+
+
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-white">
-                    
                     {% block about %}
-                    QUIEN SOMOS
-                    {% endblock  %}
+                    Acerca de Nosotros
+                    {% endblock %}
                 </h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
@@ -160,10 +218,22 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">En PONUS SOFTWARE, somos más que solo un sistema ERP. Somos un equipo apasionado de expertos en tecnología, dedicados a impulsar el éxito de tu empresa en la era digital.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Nuestra misión es proporcionar soluciones de ERP de vanguardia que transformen la gestión empresarial y maximicen la eficiencia operativa. Creemos en la innovación constante y en la creación de herramientas poderosas que impulsen el crecimiento de nuestros clientes.</p></div>
+                    <div class="col-lg-4 ms-auto">
+                        <p class="lead">
+                            {% block about_content %}
+                            En PONUS SOFTWARE, somos más que solo un sistema ERP. Somos un equipo apasionado de expertos en tecnología, dedicados a impulsar el éxito de tu empresa en la era digital.
+                            {% endblock %}
+                        </p>
+                    </div>
+                    <div class="col-lg-4 me-auto">
+                        <p class="lead">
+                            {% block about_content2 %}
+                            Nuestra misión es proporcionar soluciones de ERP de vanguardia que transformen la gestión empresarial y maximicen la eficiencia operativa. Creemos en la innovación constante y en la creación de herramientas poderosas que impulsen el crecimiento de nuestros clientes.
+                            {% endblock %}
+                        </p>
+                    </div>
                 </div>
-                <!-- About Section Button-->
+                <!-- CTA Button-->
                 <div class="text-center mt-4">
                     <p>¿Necesitas ayuda o tienes alguna pregunta?</p>
                     <a href="https://wa.me/5493537312193" class="btn btn-success">
@@ -171,8 +241,10 @@
                         ¡Contáctanos por WhatsApp!
                     </a>
                     <p>Estamos aquí para ayudarte. ¡No dudes en escribirnos!</p>
-                </div>                         
+                </div>
             </div>
+        </section>
+
 
         <!-- Footer-->
         <footer class="footer text-center">
@@ -182,7 +254,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Nuestra Ubicacion</h4>
                         <p class="lead mb-0">
-                            Cordoba 532
+                            Psj. Terzaga 308
                             <br />
                             Bell ville, Cordoba, ARG
                         </p>
@@ -205,9 +277,10 @@
                 </div>
             </div>
         </footer>
+
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Matias Piñero - PreEntrega_3</small></div>
+            <div class="container"><small>Matias Piñero - Final</small></div>
         </div>
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->
@@ -406,10 +479,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{% static 'AppCoder/js/scripts.js' %}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

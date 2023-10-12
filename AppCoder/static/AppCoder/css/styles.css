@@ -10,6 +10,8 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -1460,6 +1462,7 @@ progress {
     flex: 0 0 auto;
     width: 50%;
   }
+  
   .col-xl-7 {
     flex: 0 0 auto;
     width: 58.33333333%;
@@ -1471,6 +1474,11 @@ progress {
   .col-xl-9 {
     flex: 0 0 auto;
     width: 75%;
+  }
+  /* Establece un tamaño máximo para el logo */
+  .navbar-logo {
+    max-width: 250px; /* Establece el tamaño máximo deseado para el logo */
+    height: auto; /* Mantiene la proporción original de la imagen */
   }
   .col-xl-10 {
     flex: 0 0 auto;
@@ -10891,14 +10899,21 @@ html {
   align-items: center;
 }
 
+/* Establece una altura fija para la barra de navegación */
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
+  height: 80px; /* Establece la altura deseada para la barra de navegación */
+  line-height: 80px; /* Centra verticalmente el contenido de la barra de navegación */
 }
 #mainNav .navbar-brand {
   color: #fff;
+}
+#mainNav .navbar-brand .navbar-logo {
+  width: 80px; /* Establece el tamaño deseado para el logo */
+  height: 80px;
 }
 #mainNav .navbar-nav {
   margin-top: 1rem;
@@ -11043,4 +11058,76 @@ html {
 
 .copyright {
   background-color: #1a252f;
+}
+
+
+.menu {
+  background-color: #333; /* Color de fondo del menú */
+  padding: 10px; /* Espaciado interno del menú */
+}
+
+.menu ul {
+  list-style-type: none; /* Quitar viñetas de la lista */
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline; /* Mostrar elementos de la lista en línea */
+  margin-right: 20px; /* Espacio entre elementos de la lista */
+}
+
+.menu ul li a {
+  text-decoration: none; /* Quitar subrayado de enlaces */
+  color: #fff; /* Color del texto del enlace */
+  font-weight: bold; /* Texto en negrita */
+  transition: color 0.3s; /* Transición suave del color del texto */
+}
+
+.menu ul li a:hover {
+  color: #ff6600; /* Cambio de color del texto al pasar el mouse */
+}
+
+/* Estilos para la burbuja de usuario */
+#user-bubble {
+  display: none;
+  position: absolute;
+  top: 50px; /* Ajusta la distancia desde la parte superior según tus preferencias */
+  right: 20px; /* Ajusta la distancia desde la derecha según tus preferencias */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Asegura que la burbuja esté por encima del contenido */
+}
+
+.user-photo {
+  width: 80px; /* Ajusta el tamaño de la foto según tus preferencias */
+  height: 80px; /* Ajusta el tamaño de la foto según tus preferencias */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-options li {
+  margin-bottom: 5px;
+}
+
+/* Estilos para el botón de mostrar/ocultar la burbuja */
+#user-bubble-toggle {
+  cursor: pointer;
+}
+/* Agregar una transición para una apertura suave */
+#user-bubble {
+  /* Estilos anteriores... */
+  opacity: 0; /* Inicialmente oculta */
+  transition: opacity 0.3s ease-in-out;
+}
+
+#user-bubble.show {
+  opacity: 1; /* Mostrar con suavidad */
+}
+.avatar-image {
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  width: 150px; /* Ajusta el ancho según tus necesidades */
+  height: 150px; /* Ajusta la altura según tus necesidades */
 }

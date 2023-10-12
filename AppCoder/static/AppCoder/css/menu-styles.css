@@ -1,0 +1,35 @@
+/* Estilos para el menú */
+.menu {
+    background-color: #333; /* Color de fondo del menú */
+    padding: 10px; /* Espaciado interno del menú */
+    text-align: center; /* Centrar el texto del menú horizontalmente */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Elimina el margen predeterminado de la lista */
+}
+
+.menu ul li {
+    display: inline-block; /* Cambia a mostrar elementos como bloques en línea */
+    margin-right: 10px; /* Espaciado entre elementos del menú */
+}
+
+.menu ul li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.menu ul li a {
+    color: #fff; /* Color del texto del enlace */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Espaciado interno para enlaces */
+    border-radius: 4px; /* Añade bordes redondeados a los enlaces */
+    transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
+}
+
+.menu ul li a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+    color: #ffd700; /* Cambia el color del texto al pasar el mouse */
+}

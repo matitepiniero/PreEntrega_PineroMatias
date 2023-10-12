@@ -1,0 +1,25 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    Confirmar Eliminación de Producto
+                </div>
+
+                <div class="card-body">
+                    <p>¿Estás seguro de que deseas eliminar el producto "{{ producto.nombre }}"?</p>
+
+                    <form method="POST" action="{% url 'eliminar_producto' producto.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Eliminar Producto</button>
+                        <a href="{% url 'lista_productos' %}" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

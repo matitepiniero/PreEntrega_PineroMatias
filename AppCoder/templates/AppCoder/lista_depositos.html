@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Depósitos de Mercadería</title>
+</head>
+<body>
+    <h1>Lista de Depósitos de Mercadería</h1>
+    <ul>
+        {% for deposito in depositos %}
+            <li>{{ deposito.nombre }} - {{ deposito.direccion }}</li>
+        {% empty %}
+            <li>No hay depósitos disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

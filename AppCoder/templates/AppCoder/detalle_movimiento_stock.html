@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Movimiento de Stock</title>
+</head>
+<body>
+    <h1>Detalles del Movimiento de Stock</h1>
+    <p><strong>ID:</strong> {{ movimiento_stock.id }}</p>
+    <p><strong>Producto:</strong> {{ movimiento_stock.producto }}</p>
+    <p><strong>Tipo de Movimiento:</strong> {{ movimiento_stock.tipo_movimiento }}</p>
+    <p><strong>Cantidad:</strong> {{ movimiento_stock.cantidad }}</p>
+    <p><strong>Depósito:</strong> {{ movimiento_stock.deposito }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar Movimiento de Stock">
+    </form>
+
+    <a href="{% url 'lista_movimientos_stock' %}">Volver a la lista de movimientos de stock</a>
+</body>
+</html>

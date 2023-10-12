@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'AppCoder/css/styles.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'asistente-robot.gif' %}");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .logout-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-left: auto; /* Esto alinea el contenedor a la derecha */
+            margin-right: 20px; /* Espacio adicional en el margen derecho */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .logout-icon {
+            font-size: 44px;
+            color: #5bc0de;
+        }
+    </style>
+    <title>Cierre de Sesión</title>
+</head>
+<body>
+    <div class="logout-container">
+        <i class="fas fa-sign-out-alt logout-icon"></i>
+        <h2>¡Has cerrado la sesión con éxito!</h2>
+        <p>¡Gracias por usar nuestro sitio!</p>
+        <p><a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a></p>
+    </div>
+</body>
+</html>

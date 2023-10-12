@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Confirmar Eliminación de Depósito</title>
+    <link rel="stylesheet" href="{% static 'AppCoder\css\styles.css' %}">
+</head>
+<body>
+    <div class="confirmation">
+        <h1>Confirmar Eliminación de Depósito</h1>
+        <p class="warning">¿Estás seguro de que deseas eliminar el depósito "{{ deposito.nombre }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="buttons">
+                <button type="submit" name="confirmar" class="confirm-button">Confirmar</button>
+                <a href="{% url 'lista_depositos' %}" class="cancel-link">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

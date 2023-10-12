@@ -1,0 +1,43 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %}Detalle del Perfil{% endblock %}
+
+{% block content %}
+    <!-- User Profile Details Section -->
+    <section class="page-section" id="user-profile-details">
+        <div class="container">
+            <!-- User Profile Details Section Heading -->
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Detalle del Perfil</h2>
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- User Profile Details Content -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="mb-3">{{ perfil.user.username }}'s Profile</h4>
+                        
+                        <a href="{% url 'inicio' %}" class="btn btn-primary">Volver</a>
+                    </div>
+                    <p><strong>Nombre de Usuario:</strong> {{ perfil.user.username }}</p>
+                    <p><strong>Correo Electrónico:</strong> {{ perfil.user.email }}</p>
+                    <p><strong>Avatar:</strong></p>
+                    {% if perfil.avatar %}
+                    <img src="{{ perfil.avatar.url }}" alt="{{ perfil.user.username }} Avatar" />
+                    {% else %}
+                        <p>No se ha configurado un avatar para este perfil.</p>
+                    {% endif %}
+                    <!-- Agrega otros detalles del perfil de usuario aquí si es necesario -->
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

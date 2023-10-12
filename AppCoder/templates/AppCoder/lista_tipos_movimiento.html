@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Lista de Tipos de Movimiento</h2>
+  <ul>
+    {% for tipo in tipos_movimiento %}
+      <li>{{ tipo.numero }} - {{ tipo.nombre }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'crear_tipo_movimiento' %}">Agregar Tipo de Movimiento</a>
+{% endblock %}

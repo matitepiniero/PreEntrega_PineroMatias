@@ -52,3 +52,8 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+$(document).ready(function () {
+    $("#user-bubble-toggle").click(function () {
+        $("#user-bubble").toggle();
+    });
+});

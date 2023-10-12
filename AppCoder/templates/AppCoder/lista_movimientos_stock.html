@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
+        <!-- Agrega el enlace al archivo de estilos CSS aquí -->
+        <link href="{% static 'AppCoder/css/menu-styles.css' %}" rel="stylesheet" type="text/css" />
+
+    </head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+        </div>
+    </nav>
+
+    <!-- Movimientos de Stock Section -->
+    <section class="page-section portfolio" id="movimientos-stock">
+        <div class="container">
+            <!-- Movimientos de Stock Section Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Movimientos de Stock</h2>
+                    <!-- Icon Divider -->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="menu">
+                <ul> 
+                    <li><a href="{% url 'crear_deposito' %}">Crear Depósito</a></li>
+                    <li><a href="{% url 'crear_tipo_movimiento' %}">Crear Tipo de Movimiento</a></li>
+                    <li><a href="{% url 'crear_movimiento_stock' %}">Crear Movimiento de Stock</a></li>
+                </ul>
+            </div>
+           
+
+            <!-- Formulario de búsqueda por producto -->
+            <form method="GET" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Buscar por producto" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Botón para Ver Todos los movimientos de stock -->
+            <a href="{% url 'lista_movimientos_stock' %}" class="btn btn-secondary">Ver Todos</a>
+
+            <!-- Botón para agregar movimiento de stock
+             <a href="{% url 'crear_movimiento_stock' %}" class="btn btn-success">Agregar Movimiento de Stock</a> -->
+            
+
+            {% if movimientos %}
+                <!-- Movimientos de Stock Table -->
+                <table class="table table-bordered">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Tipo de Movimiento</th>
+                            <th>Cantidad</th>
+                            <th>Depósito</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for movimiento in movimientos %}
+                            <tr>
+                                <td>{{ movimiento.producto }}</td>
+                                <td>{{ movimiento.get_tipo_movimiento_display }}</td>
+                                <td>{{ movimiento.cantidad }}</td>
+                                <td>{{ movimiento.deposito }}</td>
+                                <td>{{ movimiento.fecha }}</td>
+                                <td>
+                                    <!-- Botón para editar movimiento de stock -->
+                                    <a href="{% url 'editar_movimiento_stock' movimiento.id %}" class="btn btn-warning btn-sm">Editar</a>
+                                    <!-- Botón para eliminar movimiento de stock -->
+                                    <a href="{% url 'eliminar_movimiento_stock' movimiento.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No se encontraron resultados.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <!-- Footer content -->
+        </div>
+    </footer>
+
+    <!-- Copyright Section -->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Matias Piñero - Final</small></div>
+    </div>
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS -->
+    <script src="{% static 'AppCoder/js/scripts.js' %}"></script>
+    <!-- SB Forms JS -->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
