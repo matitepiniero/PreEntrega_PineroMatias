@@ -1,5 +1,7 @@
 # Final_PineroMatias
 
+LINK CON VIDEO Y EXCEL DE CASOS: https://drive.google.com/drive/folders/1lBlU7pZZZiw_Qt1Nl3KpW_jf_jRMW9GR?usp=sharing
+
 Nombre de la Aplicación
 Ponus Software
 
@@ -41,17 +43,17 @@ Matias Piñero
 email: matitepiniero@gmail.com
 cel: +5493537312193
 
-Pruebas 
+**Pruebas** 
 Cliente
 1 - Crear mas de un cliente. 
 2 - Probar la busqueda de cliente
 3 - Editar Cliente
 4 - Eliminar Cliente
-Producto
+**Producto**
 1 - Crear mas de un Producto. 
 2 - Probar la busqueda de Producto
 3 - Editar Producto 
 4 - Ver si creo un codigo de barra aleatorio
 5 - Eliminar Producto
-Movimiento de Stock 
+**Movimiento de Stock**
 Esta en construccion Validando Models y relaciones.
