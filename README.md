@@ -44,6 +44,13 @@ email: matitepiniero@gmail.com
 cel: +5493537312193
 
 **Pruebas** 
+Usuario Admin: super
+Clave Admin: admin 
+
+Usuario: Prueba
+Calve: 34965702MaT55
+
+
 Cliente
 1 - Crear mas de un cliente. 
 2 - Probar la busqueda de cliente
