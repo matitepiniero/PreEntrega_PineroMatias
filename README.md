@@ -55,3 +55,7 @@ Producto
 5 - Eliminar Producto
 Movimiento de Stock 
 Esta en construccion Validando Models y relaciones.
+
+AQUI DEJO LINK PARA VER VIDEO Y CASOS DE PRUEBA
+
+https://drive.google.com/drive/folders/1lBlU7pZZZiw_Qt1Nl3KpW_jf_jRMW9GR?usp=sharing
